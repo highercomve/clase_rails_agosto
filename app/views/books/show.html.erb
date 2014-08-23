@@ -1,0 +1,36 @@
+<h1>Book: <%= @book.title %> </h1>
+
+<p>
+  <b>Author:</b>
+  <%= @book.author %>
+</p>
+<p>
+  <b>Price:</b>
+  <%= @book.price %>
+</p>
+<p>
+  <b>Pages: </b>
+  <%= @book.pages %>
+</p>
+
+<p>
+  <b>Language: </b>
+  <%= @book.language %>
+</p>
+
+<br>
+
+<table border = "2">
+<thead>
+    <th>Comment</th>
+    <th>User</th>
+</thead>
+  <tbody>
+    <% @book.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.review %></td>
+        <td><%= comment.user.full_name %></td>
+      </tr>
+    <% end  %>
+  </tbody>
+</table>

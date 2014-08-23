@@ -1,0 +1,8 @@
+<%= simple_form_for @book do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :price %>
+  <%= f.input :pages, as: :string, label: "Number of pages: " %>
+  <%= f.input :language %>
+  <%= f.submit %>
+<% end %>
