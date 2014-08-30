@@ -1,8 +1,13 @@
 <%= simple_form_for @book do |f| %>
+
+<div class="form-inputs">
   <%= f.input :title %>
   <%= f.input :author %>
   <%= f.input :price %>
   <%= f.input :pages, as: :string, label: "Number of pages: " %>
   <%= f.input :language %>
-  <%= f.submit %>
+  
+  <%= f.button :submit, "Guardar", class: "btn btn-primary"  %>
+</div>
+
 <% end %>

@@ -84,5 +84,6 @@ test:
 production:
   <<: *default
   database: Curso_production
-  username: Curso
-  password: <%= ENV['CURSO_DATABASE_PASSWORD'] %>
+  username: daniel
+  password: 123456
+  host: localhost

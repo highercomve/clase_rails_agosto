@@ -13,4 +13,13 @@ namespace :base_datos do
     end
   end
 
+  task create_password_all_users: :environment do
+
+    users = User.all
+    users.each do |u|
+      u.password = '123456789' if u.password.nil?
+      u.save
+    end
+  end
+
 end

@@ -8,7 +8,26 @@
 </head>
 <body>
 
-<%= yield %>
+<header class="container">
+  <nav>
+    <%= link_to "Home", root_url %>
+    <% unless user_signed_in? %>
+      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Register", new_user_registration_path %>
+    <% else %>
+      <%= link_to "Edit profile >> #{current_user.full_name}", edit_user_registration_path %>
+      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <% end %>
+    
+  </nav>
+  <div class="errors">
+    <h3> <%= flash[:notice] %> </h3>
+    <h3> <%= flash[:alert] %> </h3>
+  </div>
+</header>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

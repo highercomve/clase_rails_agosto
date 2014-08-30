@@ -1,5 +1,5 @@
 <h1>Book: <%= @book.title %> </h1>
-
+<h3>Publicado por: <%= @book.users.first.full_name %></h3>
 <p>
   <b>Author:</b>
   <%= @book.author %>
@@ -18,7 +18,21 @@
   <%= @book.language %>
 </p>
 
+<p>
+  <b>status</b>
+  <% unless @leido %>
+    No te lo haz leido
+    <%= link_to "Marcar como leido", read_book_path(@book), method: :patch %>
+  <% else %>
+    Ya lo leiste
+  <% end %>
+</p>
+
 <br>
+
+<h2>Add new comment</h2>
+  <%= render "comments/form" %>
+<hr>
 
 <table border = "2">
 <thead>
@@ -29,7 +43,7 @@
     <% @book.comments.each do |comment| %>
       <tr>
         <td><%= comment.review %></td>
-        <td><%= comment.user.full_name %></td>
+        <td><%= comment.user.full_name unless comment.user.nil? %></td>
       </tr>
     <% end  %>
   </tbody>
